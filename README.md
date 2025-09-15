@@ -92,6 +92,18 @@ This serverless application integrates several AWS services to provide a scalabl
 - Integrated with **Step Functions** for automated messaging at workflow completion.  
 
 ---
+# 🧪 Tests
+
+This project includes tests to validate the functionality of the serverless application components.  
+![STest Screenshot](./Test.png)
+
+![STest Screenshot](./Test1.png)
+
+
+![STest Screenshot](./Test2.png)
+
+![STest Screenshot](./Test3.png)
+
 
 ## 📝 Project Flow
 
