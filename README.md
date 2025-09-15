@@ -29,7 +29,7 @@ This serverless application integrates several AWS services to provide a scalabl
 - Stores static assets (HTML, CSS, JS, images).
 ![S3 Screenshot](./UploadObject.png)
 
-- Configured as a **serverless website bucket** with public read access via S3 Website URL.
+- Configured as a **serverless website bucket** with public access via S3 Website URL.
 ![S3 Screenshot](./s3PublicBucketPolicy.png)
 
 ---
@@ -38,7 +38,7 @@ This serverless application integrates several AWS services to provide a scalabl
 - IAM Roles ensure **least privilege** access between services:
   - **Lambda Execution Role** → allows writing logs to CloudWatch & invoking Step Functions.
     ![IAM Screenshot](./LambdaRole.png)
-  - **Step Functions Role** → allows triggering Lambdas & accessing SNS/SES.  
+  - **Step Functions Role** → allows triggering Lambdas & accessing SES.  
     ![IAM Screenshot](./StateMachineRole.png)
   
 - Policies are **scoped tightly** to avoid over-permissioning.  
@@ -64,15 +64,19 @@ This serverless application integrates several AWS services to provide a scalabl
 - Key responsibilities:
   - Process API Gateway requests.  
   - Execute workflow steps inside **Step Functions**.  
-  - Send notifications via **SES/SNS**.  
+  - Send notifications via **SES**.  
 - Uses **IAM execution role** for controlled access.  
 
 ---
 
 ### 5. AWS Step Functions – Workflow Orchestration
-![Step Function Screenshot](./screenshots/stepfunction.png)
+![Step Function Screenshot](./StepFunctionASL.png)
 
-- Manages the **business workflow** (like PetCuddleOTron cuddle sequence 🐶🐱).  
+![Step Function Screenshot](./StepFunctionConfig.png)
+
+![Step Function Screenshot](./StepFunction.png)
+
+- Manages the **business workfStepFunctionConfig.pnglow** (like PetCuddleOTron cuddle sequence 🐶🐱).  
 - Each step invokes different **Lambda functions**.  
 - Provides:
   - **State tracking**  
@@ -81,11 +85,10 @@ This serverless application integrates several AWS services to provide a scalabl
 
 ---
 
-### 6. Amazon SES / SNS – Notifications
-![SES Screenshot](./screenshots/ses.png)
+### 6. Amazon SES  – Notifications
+![SES Screenshot](./SES.png)
 
 - **Amazon SES** sends out email notifications (e.g., “Pet cuddle request completed”).  
-- **SNS** can be used for alternative pub/sub messaging patterns.  
 - Integrated with **Step Functions** for automated messaging at workflow completion.  
 
 ---
@@ -96,7 +99,7 @@ This serverless application integrates several AWS services to provide a scalabl
 2. Request is sent via **API Gateway** → triggers **Lambda**.  
 3. Lambda calls a **Step Functions workflow**.  
 4. Workflow coordinates multiple **Lambdas** for different steps.  
-5. On completion, **SES/SNS sends notification** to the user.  
+5. On completion, **SES sends notification** to the user.  
 
 ---
 
@@ -111,13 +114,6 @@ This serverless application integrates several AWS services to provide a scalabl
 
 ---
 
-## 📸 Screenshots
-
-All screenshots are stored in the `./screenshots/` folder.  
-Each service screenshot has been documented above in its relevant section.  
-
----
-
 ## 🎯 Reference
-- Inspired by [Adrian Cantrill’s PetCuddleOTron Mini Project](https://learn.cantrill.io)
+- Inspired by [Adrian Cantrill’s](https://learn.cantrill.io)
 
