@@ -1,5 +1,5 @@
 
-# 🐾 Serverless Application on AWS (PetCuddleOTron Reference)
+# 🐾 Serverless Application on AWS (PetCuddleOTron )
 
 This project demonstrates a serverless architecture deployed on AWS.  
 It follows a pattern inspired by Adrian Cantrill’s *PetCuddleOTron*.
