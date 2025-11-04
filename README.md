@@ -6,6 +6,8 @@ PetCuddleOTron is a fully serverless AWS application that reminds pet owners whe
 The app uses AWS serverless technologies to automate reminders, process requests, and send notifications — with zero servers to manage.
 
 It’s built to demonstrate a *modern event-driven architecture* using AWS Lambda, Step Functions, API Gateway, and SES
+
+
 ---
 
 ## 📌 Architecture Overview
